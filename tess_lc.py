@@ -474,7 +474,7 @@ def ana_lomb(time, lcs, save = True, name ="sy_cha"):
     return power, frequency, 1/frequency[i_max]
 
 
-def main(name_arr, ra_arr, dec_arr, size = 50, start_star = "", folder_output = "./tess_output", until_i=1, pca_comp = 5, ap_wd=3, replace = False ):
+def main(name_arr, ra_arr, dec_arr, size = 50, start_star = "", folder_output = "../tess_output", until_i=-1, pca_comp = 5, ap_wd=3, replace = False ):
 
 
     flag_star = 0
