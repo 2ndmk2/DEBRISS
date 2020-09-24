@@ -1,20 +1,12 @@
-from astropy.io import fits
 import numpy as np
 import matplotlib.pyplot as plt
-from scipy.ndimage.filters import maximum_filter
-from scipy.ndimage.morphology import generate_binary_structure, binary_erosion
-from astropy.timeseries import LombScargle
-import astropy.units as u
 import tess_lc
+import importlib
+importlib.reload(tess_lc)
 
-file_names = ["SY_cha/tess-s0011-3-4_164.123040_-77.196550_50x50_astrocut.fits","SY_cha/tess-s0012-3-3_164.123040_-77.196550_50x50_astrocut.fits"]
-lc_svd_now, lc_ori = tess.return_lcs_fromfiles(file_names)
-power, frequency, period = tess.ana_sum(lc_svd_now/np.median(lc_svd_now))
-power2, frequency2, period  =tess.ana_sum( lc_ori/np.median( lc_ori), save= False)
-plt.plot(1/frequency, power, color ="r")
-plt.plot(1/frequency2, power2)
-plt.xlim(0,30)
-
+name_arr, ra_arr, dec_arr, spt_arr, T_arr, ldisk = tess_lc.catalog_load_and_save("./debris/table.dat")
+table = np.load("catalog.npz")
+tess_lc.main(name_arr, ra_arr, dec_arr, until_i =10000, size =70 , start_star = "", replace=True, pca_comp = 3, ap_wd=5)
 
 
 
