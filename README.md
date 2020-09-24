@@ -8,5 +8,5 @@ python TESS_main.py
 python onestar_test.py 
 Default returns lcs of SY Cha
 
-Note: You can manipulate coordinate of star..
+Note: You can manipulate coordinate of starlike \\
 python onestar_test.py  -ra 100 -dec 30 -name "test"
